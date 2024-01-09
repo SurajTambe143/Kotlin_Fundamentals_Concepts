@@ -107,3 +107,61 @@ fun main(){
 //    }
 //    println(temp)
 //}
+
+fun main() {
+    
+    val input="aabcd"
+    var result =palindrome(input)
+    var reverse =reverseString(input)
+    var fibo =fibonacciSeries(10)
+    println("Value is $result and in reverse is $reverse")
+    for(i in fibo){print(i)}
+    
+}
+
+fun palindrome(string:String):Boolean{
+    var start = 0
+    var end= string.length-1
+    while(start<end){
+        if(string[start]==string[end]){
+            start++
+            end--
+        }
+        else return false
+    }
+    return true
+}
+
+fun reverseString(string:String):String{
+    var end= string.length-1
+    var temp:String=""
+    for(i in string){
+        temp+=string[end]
+        end --
+    }
+    return temp
+}
+
+fun fibonacciSeries(n:Int):MutableList<Int>{
+    var list=mutableListOf<Int>() 
+    var a=0
+    var b=1
+    var temp :Int
+    if(n==1) list.add(0)
+    if(n==2) {
+    list.add(0)
+    list.add(1)
+    }
+    if(n>=3){
+       list.add(0)
+       list.add(1)
+       for(i in 3..n){
+        	list.add(a+b)
+            temp=a+b
+           	a=b
+           	b=temp
+    	} 
+    }
+   
+    return list
+}
