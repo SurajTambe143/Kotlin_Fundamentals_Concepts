@@ -1,0 +1,8 @@
+fun main() {
+    println("Hello, world!!!")
+    mainTest
+}
+
+fun mainTest(print:(name:String)->Unit){
+    print.invoke("gokul")
+}
