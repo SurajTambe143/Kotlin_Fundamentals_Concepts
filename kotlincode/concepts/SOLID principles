@@ -1,6 +1,14 @@
 //SOLID principles 
-// Open Close : should be open for extension but closed for modification.
 
+//S:This principle states that a class should have only one reason to change. In other words, a class should have only one responsibility.
+//The Employee class has a single responsibility of managing employee details and providing a method to calculate salary.
+data class Employee(val id: Int, var name: String ,var salary:Double){
+    fun calculateSalary(): Double {
+        return salary
+    }
+}
+
+// Open Close : should be open for extension but closed for modification.
 abstract class Person(){
     
     open fun role(){
@@ -18,6 +26,32 @@ fun main(){
     val organization = Organization()
     organization.role()
 }
+
+//L- This principle states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
+//PermanentEmployee and ContractEmployee can be used interchangeably with Employee without affecting the correctness of the program.
+open class Employee {
+    fun name(){
+        println("")
+    }
+}
+
+class PermanentEmployee : Employee() {
+    override fun name(){
+        println("Permanent Employee")
+    }
+}
+
+class ContractEmployee : Employee() {
+    override fun name(){
+        println("contract Employee")
+    }
+}
+
+fun main(){
+    val person = ContractEmployee()
+    person.name()
+}
+
 
 //I -This principle states that clients should not be forced to depend on interfaces they do not use. It encourages breaking interfaces into smaller, more specific ones.
 //segregated into separate interfaces, allowing classes to implement only the methods they need.
@@ -51,3 +85,6 @@ fun main() {
     person.personName()
     person.name()
 }
+
+//D : This principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions. Additionally, abstractions should not depend on details; details should depend on abstractions.
+// abstraction rather than concrete implementations, allowing for flexibility and easier testing.
