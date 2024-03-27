@@ -18,3 +18,36 @@ fun main(){
     val organization = Organization()
     organization.role()
 }
+
+//I -This principle states that clients should not be forced to depend on interfaces they do not use. It encourages breaking interfaces into smaller, more specific ones.
+//segregated into separate interfaces, allowing classes to implement only the methods they need.
+interface Employee{
+    
+    fun personName()
+    fun personID()
+}
+
+interface Organization{
+    fun name()
+    fun designation()
+}
+
+class Person:Employee,Organization{
+    override fun personName(){
+        println("Suraj")
+    }
+    override fun personID(){
+        println("11102")
+    }
+    override fun name(){
+        println("Neosoft")
+    }
+    override fun designation(){
+        println("Android Developer")
+    }
+}
+fun main() {
+    val person = Person()
+    person.personName()
+    person.name()
+}
