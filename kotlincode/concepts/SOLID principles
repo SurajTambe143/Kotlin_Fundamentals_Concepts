@@ -30,7 +30,7 @@ fun main(){
 //L- This principle states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
 //PermanentEmployee and ContractEmployee can be used interchangeably with Employee without affecting the correctness of the program.
 open class Employee {
-    fun name(){
+    open fun name(){
         println("")
     }
 }
