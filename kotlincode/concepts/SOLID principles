@@ -88,3 +88,35 @@ fun main() {
 
 //D : This principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions. Additionally, abstractions should not depend on details; details should depend on abstractions.
 // abstraction rather than concrete implementations, allowing for flexibility and easier testing.
+
+interface Person{
+    fun timeInvested()
+}
+
+class Organization():Person{
+    override fun timeInvested(){
+        println("9 hrs working")
+    }
+}
+
+class Home():Person{
+    override fun timeInvested(){
+        println("8 hrs sleeping")
+    }
+}
+
+class HoursSpend(private val person:Person){
+    fun doingSomething(){
+        person.timeInvested()
+    }
+}
+
+fun main() {
+    val organization = Organization()
+    val hoursSpendOrganization = HoursSpend(organization)
+    hoursSpendOrganization.doingSomething()
+    
+    val home = Home()
+    val hoursSpendHome = HoursSpend(home)
+    hoursSpendHome.doingSomething()
+}
