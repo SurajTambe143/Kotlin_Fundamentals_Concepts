@@ -1,0 +1,17 @@
+fun main() {
+   	val a= arrayOf(1,2,3,4,5)
+    val s = a.size-2
+    var temp:Int
+    var rotate =2
+    while(rotate!=0){
+     for(i in 0..s){
+        temp=a[i]
+        a[i]=a[i+1]
+        a[i+1]=temp
+     }
+     rotate--
+    }
+    for(j in a){
+     	print(j)   
+    }
+}
