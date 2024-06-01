@@ -1,0 +1,16 @@
+fun main() {
+
+    var n= 12345
+    var count =5
+    var result=0
+    var temp=1
+    
+    while(count!=0){
+        temp=n%10
+        result=result*10+temp
+        n=n/10
+        count--
+    }
+    print(result)
+
+}
