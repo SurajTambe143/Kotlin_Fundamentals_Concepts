@@ -1,0 +1,23 @@
+fun main() {
+
+    val string1 = "listen"
+    val string2 = "silent"
+
+    println(anagram(string1, string2))
+
+}
+
+fun anagram(str1: String, str2: String): Boolean {
+
+    val str1Arr: CharArray = str1.toCharArray()
+    val str2Arr: CharArray = str2.toCharArray()
+    str1Arr.sort()
+    str2Arr.sort()
+    println(Arrays.equals(str1Arr, str2Arr))
+
+    val sort1Array = str1Arr.joinToString()
+    val sort2Array = str2Arr.joinToString()
+
+    return sort1Array == sort2Array
+
+}
