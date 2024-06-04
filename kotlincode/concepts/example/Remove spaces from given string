@@ -1,0 +1,15 @@
+fun main() {
+
+    var str="      Kotlin     for    Android  "
+
+    var result=""
+
+    for (data in str){
+        if (data!= ' '){
+            result += "$data"
+        }
+    }
+
+    println(result)
+
+}
